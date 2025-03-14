@@ -5,7 +5,7 @@ import Button from "./Button"
 export default function NavBar() {
     return (
         <>
-        <div className="flex gap-2 justify-between items-center  p-4  bg-zinc-950   border-b-4 border-blue-600  shadow-lg  sticky top-0 z-50">
+        <div className="flex gap-2 justify-between items-center  p-4 bg-white dark:bg-zinc-950   border-b-4 border-blue-600  shadow-lg  sticky top-0 z-50">
             {/* items */}
             <p className="text-2xl font-bold">Blog</p>
 
