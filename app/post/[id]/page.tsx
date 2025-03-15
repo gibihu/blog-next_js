@@ -5,6 +5,35 @@ import { useParams } from "next/navigation";
 import Head from 'next/head';
 
 
+export async function generateStaticParams() {
+  useEffect(() => {
+    const sendData = async () => {
+      try {
+        const response = await fetch('https://qoochub.com/api/sub/blog/post/all.php', {
+          method: 'POST', // ใช้ POST method
+          headers: {
+            'Content-Type': 'application/json', // ระบุว่าเป็นข้อมูล JSON
+          },
+          body: JSON.stringify({
+            token: 'MNBVCXZASDFGHJKL' ,
+            orderby: 'DESC'
+          }),
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        // console.log(result);
+        return result.message;
+      } catch (error) {
+        return error;  // เก็บข้อความ error ถ้ามี
+      }
+    };
+
+    sendData();
+  }, []);
+}
+
 export default function UserPage() {
   const { id } = useParams(); // ดึงค่าพารามิเตอร์จาก URL
 
@@ -60,6 +89,8 @@ export default function UserPage() {
       });
     };
   }, [id]);
+
+  if (!post) return <div>กำลังโหลด...</div>;
 
   return (
     <>
