@@ -1,14 +1,12 @@
 "use client"; // บังคับให้เป็น Client Component
 
 import { use, useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import Head from 'next/head';
 
-interface UserPageProps {
-  params: Promise<{ id: string }>; // ✅ params เป็น Promise
-}
 
-export default function UserPage({ params }: UserPageProps) {
-  const { id } = use(params); // ✅ ใช้ use() เพื่อดึงค่า
+export default function UserPage() {
+  const { id } = useParams(); // ดึงค่าพารามิเตอร์จาก URL
 
   const [post, setPost] = useState<any | null>(null);
 
