@@ -44,7 +44,7 @@ export default function Home() {
       {data ? (
         <div className="grid grid-colos-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4  p-4  overflow-hidden  bg-zinc-100 dark:bg-zinc-900">
           {data.map((content, index) => (
-            <Link href={`post/${content.id}`} key={index} >
+            <Link href={`/view?id=${content.id}`} key={index}>
               <Card image={content.urlImgResized} title={content.topic} key={index} animate={true} className='h-full'>
                 <div className="h-full flex flex-col justify-end  p-4">
                   <div className="flex justify-between">
