@@ -1,7 +1,7 @@
 
 
 import Head from 'next/head';
-import PostContent from './onec'; // Adjust the path as necessary
+import PostContent from '../../components/posts/onec'; // Adjust the path as necessary
 
 export async function generateStaticParams() {
   try {
